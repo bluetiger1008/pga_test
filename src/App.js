@@ -11,7 +11,7 @@ class App extends Component {
       lastName: "",
       score: 0
     },
-    data: [
+    players: [
       {
         firstName: "Geary",
         lastName: "Alice",
@@ -46,7 +46,7 @@ class App extends Component {
     if (input.firstName !== "" && input.lastName !== "" && input.score !== "") {
       this.setState(
         {
-          data: this.state.data.concat(input)
+          players: this.state.players.concat(input)
         },
         () => {
           this.resetAddForm();
@@ -69,15 +69,15 @@ class App extends Component {
 
   onDelete = index => {
     this.setState(prevState => {
-      prevState.data.splice(index, 1);
+      prevState.players.splice(index, 1);
       return {
-        data: prevState.data
+        players: prevState.players
       };
     });
   };
 
   render() {
-    const { data, input } = this.state;
+    const { players, input } = this.state;
     const columns = [
       {
         Header: "Name",
@@ -130,7 +130,7 @@ class App extends Component {
             <button type="submit">Add</button>
           </form>
           <ReactTable
-            data={data}
+            data={players}
             columns={columns}
             defaultPageSize={10}
             defaultSorted={[
