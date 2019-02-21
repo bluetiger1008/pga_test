@@ -43,7 +43,7 @@ class App extends Component {
     e.preventDefault();
     const { input } = this.state;
 
-    if (input.firstName !== "" && input.lastName !== "") {
+    if (input.firstName !== "" && input.lastName !== "" && input.score !== "") {
       this.setState(
         {
           data: this.state.data.concat(input)
@@ -53,7 +53,7 @@ class App extends Component {
         }
       );
     } else {
-      alert("Please input first name and last name");
+      alert("Please input all fields");
     }
   };
 
